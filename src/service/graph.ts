@@ -13,18 +13,18 @@ export default class DebtGraph {
 		this.edges = new Map();
 	}
 
-	private encodeEdge(debtor: Name, payer: Name) {
+	public static encodeEdge(debtor: Name, payer: Name) {
 		return `${debtor}#${payer}`;
 	}
 
-	private decodeEdge(edge: string): [Name, Name] {
+	public static decodeEdge(edge: string): [Name, Name] {
 		const split = edge.split("#");
 		return [split[0], split[1]];
 	}
 
 	public addEdge(debtor: Name, payer: Name, amount: Money) {
-		const encoding = this.encodeEdge(debtor, payer);
-		const reversed = this.encodeEdge(payer, debtor);
+		const encoding = DebtGraph.encodeEdge(debtor, payer);
+		const reversed = DebtGraph.encodeEdge(payer, debtor);
 
 		if (this.edges.has(encoding)) {
 			const currentAmount = this.edges.get(encoding)!;
@@ -46,7 +46,7 @@ export default class DebtGraph {
 	}
 
 	public getEdgeWeight(debtor: Name, payer: Name): Some<Money> {
-		const edge = this.encodeEdge(debtor, payer);
+		const edge = DebtGraph.encodeEdge(debtor, payer);
 
 		if (this.edges.has(edge)) {
 			return { kind: "some", value: this.edges.get(edge)! };
