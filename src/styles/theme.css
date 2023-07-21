@@ -2,3 +2,12 @@
 @import url(typography.module.css);
 @import url(theme.light.css) (prefers-color-scheme: light);
 @import url(theme.dark.css) (prefers-color-scheme: dark);
+
+:root {
+	caret-color: var(--md-sys-color-primary);
+	--md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+*::selection {
+	background-color: color-mix(in srgb, var(--md-sys-color-primary), transparent 82%);
+}
