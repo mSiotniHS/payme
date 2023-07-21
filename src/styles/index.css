@@ -9,10 +9,54 @@
 	-webkit-text-size-adjust: 100%;
 }
 
+/* RESET (credit: Josh Comeau & Andy Bell) */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+}
+html, body {
+	min-block-size: 100%;
+}
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+	display: block;
+	max-inline-size: 100%;
+}
+input, button, textarea, select {
+	font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Credit ends */
+
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	outline: inherit;
+	padding: 0;
+}
+
 :root,
 body {
 	padding: 0;
-	margin: 0;
 }
 
 p,
@@ -23,5 +67,4 @@ h4,
 h5,
 h6 {
 	padding: 0;
-	margin: 0;
 }
